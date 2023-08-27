@@ -1,0 +1,29 @@
+
+using System;
+
+public interface IAnimal
+{
+    string nome { get; set; }
+    string raca { get; set; }
+
+    public abstract void comer(string comida);
+    public abstract void dormir();
+    public abstract string emitirSom();
+}
+
+public class Cachorro : IAnimal
+{
+    public string nome { get; set; }
+    public string raca { get; set; }
+
+    public Cachorro(string nome, string raca)
+    {
+        this.nome = nome;
+        this.raca = raca;
+
+    }
+
+    public void comer(string comida) { }
+    public void dormir() { }
+    public string emitirSom() { return "AuAu"; }
+}
