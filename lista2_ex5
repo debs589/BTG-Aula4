@@ -1,0 +1,38 @@
+using System;
+
+public class Solution
+{
+
+}
+
+public class Carro
+{
+    public int GasolinaInicial { get; set; }
+    public Carro(int gasolinaInicial)
+    {
+        GasolinaInicial = gasolinaInicial;
+    }
+
+    public string Dirigir()
+    {
+        if (GasolinaInicial > 0)
+        {
+            return "Dirigindo";
+        } else
+        {
+            return "Sem combustível";
+        }
+    }
+    public bool Reabastecer(int QtdeGasolina)
+    {
+        GasolinaInicial += QtdeGasolina;
+        return true;
+
+    }
+}
+
+public interface IVeiculo
+{
+    public string Dirigir();
+    public bool Reabastecer(int QtdeGasolina);
+}
