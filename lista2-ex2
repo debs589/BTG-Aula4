@@ -1,0 +1,64 @@
+using System;
+
+public static class TestarVenda
+{
+    public static string DetalhesVenda(Venda venda)
+    {
+        return $"Data da venda: {venda.dataString()} - " +
+                $"Produto: {venda.produto.nome} - " +
+                $"Valor do produto: {venda.produto.valor} - " +
+                $"Vencimento: {venda.produto.dataString()}";
+    }
+
+}
+
+public class Venda : IData
+{
+    public DateTime data { get; set; }
+    public Produto produto { get; set; }
+
+    public Venda() { }
+    public void setData(DateTime data)
+    {
+        this.data = data;
+
+    }
+    public DateTime getData()
+    {
+        return data;
+    }
+    public string dataString()
+    {
+        return data.ToString("dd/MM/yyyy");
+    }
+
+}
+public class Produto : IData
+{
+    public string nome { get; set; }
+    public double valor { get; set; }
+    public DateTime data { get; set; }
+    public Produto() { }
+    public void setData(DateTime data)
+    {
+        this.data = data;
+
+    }
+    public DateTime getData()
+    {
+        return data;
+    }
+    public string dataString()
+    {
+        return data.ToString("dd/MM/yyyy");
+    }
+}
+public interface IData
+{
+    DateTime data { get; set; }
+
+    public void setData(DateTime data);
+    public DateTime getData();
+    public string dataString();
+
+}
